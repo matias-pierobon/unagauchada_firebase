@@ -1,0 +1,10 @@
+[ignore]
+module.name_mapper='.*\(.scss\)' -> 'empty/object'
+
+[include]
+
+[libs]
+
+[options]
+module.name_mapper='.*\(.scss\)' -> 'empty/object'
+

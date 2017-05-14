@@ -1,0 +1,15 @@
+@import './variables.scss';
+
+@include react-md-everything;
+
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: $md-grey-50;
+}
+
+app {
+    header.md-toolbar {
+        background-color: $md-white-base;
+    }
+}
