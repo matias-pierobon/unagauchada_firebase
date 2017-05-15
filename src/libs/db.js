@@ -19,6 +19,7 @@ try {
   }
 }
 
-const root = firebase.database().ref()
+const rootRef = firebase.database().ref()
 
-export default root
+export default rootRef
+export const app = firebase.app()
