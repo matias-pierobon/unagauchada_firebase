@@ -5,6 +5,7 @@ import Toolbar from "react-md/lib/Toolbars"
 import Paper from "react-md/lib/Papers"
 import Button from "react-md/lib/Buttons/Button"
 import Login from "../Login"
+import Signin from "../Signin/Signin"
 import FavorList from "../FavorList"
 
 import "./App.scss"
@@ -23,6 +24,7 @@ const App = () => (
     <Router>
       <div>
         <Route path="/login" component={Login} />
+        <Route path="/signin" component={Signin} />
         <Route path="/list" component={FavorList} />
       </div>
     </Router>

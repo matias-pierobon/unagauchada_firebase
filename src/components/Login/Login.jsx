@@ -1,49 +1,55 @@
 import React from "react"
-import Paper from 'react-md/lib/Papers';
+import Paper from "react-md/lib/Papers"
 import Button from "react-md/lib/Buttons/Button"
-import TextField from 'react-md/lib/TextFields';
+import TextField from "react-md/lib/TextFields"
+import firebase from "firebase"
+import { app } from "../../libs/db.js"
 
-import "./login.scss"
+import "./Login.scss"
 
 class Login extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { username: "", password: "", first: true }
+    this.state = { email: "", password: "", first: true }
   }
 
-  handleChange = property => event => {
-    let nextState = { ...this.state }
-    nextState[property] = event.target.value
-    this.setState(nextState)
+  handleChange = property => value => {
+    this.setState({
+      [property]: value
+    })
   }
 
-  doLogin = () => null
+  loginUser = () => {
+    firebase
+      .auth(app)
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .catch(error => console.error(error))
+  }
 
   render = () => (
     <login>
       <Paper zDepth={2}>
         <header>Ingresar al sistema</header>
         <section>
-          <div>
-            <TextField
-              label="Nombre de Usuario"
-              fullWidth={true}
-              value={this.state.username}
-              onChange={this.handleChange("username")}
-            />
-          </div>
-          <div>
-            <TextField
-              label="Contraseña"
-              type="password"
-              fullWidth={true}
-              value={this.state.password}
-              onChange={this.handleChange("password")}
-            />
-          </div>
+          <TextField
+            id="email"
+            label="Email"
+            fullWidth={true}
+            value={this.state.email}
+            onChange={this.handleChange("email")}
+          />
+          <TextField
+            id="password"
+            label="Contraseña"
+            type="password"
+            fullWidth={true}
+            value={this.state.password}
+            onChange={this.handleChange("password")}
+          />
+          {" "}
         </section>
         <footer>
-          <Button raised label="Aceptar" primary onTouchTap={this.doLogin} />
+          <Button raised label="Aceptar" primary onClick={this.loginUser} />
         </footer>
       </Paper>
     </login>
