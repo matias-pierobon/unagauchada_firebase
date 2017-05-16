@@ -8,12 +8,13 @@ import CardText from "react-md/lib/Cards/CardText"
 import Media, { MediaOverlay } from "react-md/lib/Media"
 import Avatar from "react-md/lib/Avatars"
 import Button from "react-md/lib/Buttons"
+import MainPage from '../MainPage'
 import './FavorList.scss'
 
 const Favor = ({ favor }) => (
   <Card style={{ maxWidth: 400 }} className="md-block-centered">
     <Media>
-      <img src="http://placehold.it/350x150" role="presentation" />
+      <img src={`https://unsplash.it/350/150/?random&time=${(new Date()).getTime()}`} role="presentation" />
       <MediaOverlay>
         <CardTitle title={favor.title} />
       </MediaOverlay>
@@ -21,7 +22,7 @@ const Favor = ({ favor }) => (
     <CardTitle
       avatar={
         <Avatar
-          src="https://unsplash.it/40/40?random&time=1494727081848"
+          src={`https://unsplash.it/40/40?random&time=${(new Date()).getTime()}`}
           role="presentation"
         />
       }
@@ -89,8 +90,8 @@ const favores = [
   )
 ]
 
-const makeList = favors => favors.map(favor => <Favor favor={favor} />)
+const makeList = favors => favors.map(favor => <Favor key={favor.id} favor={favor} />)
 
-const FavorList = () => <list> {makeList(favores)}</list>
+const FavorList = () => <MainPage><list> {makeList(favores)}</list></MainPage>
 
 export default FavorList

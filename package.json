@@ -6,6 +6,7 @@
     "firebase": "^3.9.0",
     "flow-bin": "^0.46.0",
     "react": "^15.5.4",
+    "react-css-modules": "^4.0.5",
     "react-dom": "^15.5.4",
     "react-md": "^1.0.13",
     "react-router-dom": "^4.1.1",

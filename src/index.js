@@ -5,7 +5,7 @@ import App from "./components/App"
 
 WebFont.load({
   google: {
-    families: ["Roboto", "Material Icons"]
+    families: ["Roboto", "Material Icons", "Product Sans"]
   }
 })
 

@@ -11,15 +11,20 @@ import FavorList from "../FavorList"
 import "./App.scss"
 
 const actions = [
-  <Button key="ver" flat label="Ver Favores" />,
-  <Button key="search" flat label="Buscar" />,
-  <Button key="login" flat primary label="Login" />
+  <Button className="login-btn" key="login" raised primary label="Login" />
 ]
+
+const nav = <Button key="nav" icon>menu</Button>
 
 const App = () => (
   <app>
     <Paper zDepth={1}>
-      <Toolbar themed title="Una Gauchada" actions={actions} />
+      <Toolbar
+        colored
+        title={<h2>Una<span>Gauchada</span></h2>}
+        actions={actions}
+        nav={nav}
+      />
     </Paper>
     <Router>
       <div>

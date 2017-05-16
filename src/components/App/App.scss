@@ -10,6 +10,19 @@ html, body{
 
 app {
     header.md-toolbar {
-        background-color: $md-white-base;
+        //background-color: $md-white-base;
+
+        .md-title{
+            font-family: 'Product Sans';
+            font-weight: 600;
+
+            span {
+                font-weight: 300;
+            }
+        }
+
+        .login-btn{
+            background-color: $md-orange-900;
+        }
     }
 }
