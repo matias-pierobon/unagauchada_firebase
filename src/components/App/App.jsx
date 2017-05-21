@@ -8,6 +8,9 @@ import Login from "../Login"
 import Signin from "../Signin/Signin"
 import FavorList from "../FavorList"
 
+import TextField from "react-md/lib/TextFields"
+import FontIcon from "react-md/lib/FontIcons"
+
 import "./App.scss"
 
 const actions = [
@@ -18,14 +21,28 @@ const nav = <Button key="nav" icon>menu</Button>
 
 const App = () => (
   <app>
-    <Paper zDepth={1}>
-      <Toolbar
-        colored
-        title={<h2>Una<span>Gauchada</span></h2>}
-        actions={actions}
-        nav={nav}
+    <Toolbar
+      zDepth={1}
+      colored
+      title={
+        <h2>
+          Una<span>Gauchada</span>
+        </h2>
+      }
+      actions={actions}
+      nav={nav}
+    >
+      <caption>Explorar</caption>
+      <TextField
+        id="iconLeftPhone"
+        block
+        placeholder="Buscar"
+        leftIcon={<FontIcon>search</FontIcon>}
+        size={10}
+        className="md-title--toolbar md-cell--middle toolbar-text"
+        inputClassName="md-text-field--toolbar"
       />
-    </Paper>
+    </Toolbar>
     <Router>
       <div>
         <Route path="/login" component={Login} />

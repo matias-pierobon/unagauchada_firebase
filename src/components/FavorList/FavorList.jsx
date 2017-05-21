@@ -8,30 +8,30 @@ import CardText from "react-md/lib/Cards/CardText"
 import Media, { MediaOverlay } from "react-md/lib/Media"
 import Avatar from "react-md/lib/Avatars"
 import Button from "react-md/lib/Buttons"
-import MainPage from '../MainPage'
-import './FavorList.scss'
+import MainPage from "../MainPage"
+import "./FavorList.scss"
 
 const Favor = ({ favor }) => (
   <Card style={{ maxWidth: 400 }} className="md-block-centered">
-    <Media>
-      <img src={`https://unsplash.it/350/150/?random&time=${(new Date()).getTime()}`} role="presentation" />
-      <MediaOverlay>
-        <CardTitle title={favor.title} />
-      </MediaOverlay>
-    </Media>
     <CardTitle
       avatar={
         <Avatar
-          src={`https://unsplash.it/40/40?random&time=${(new Date()).getTime()}`}
+          src={`https://unsplash.it/40/40?random&time=${new Date().getTime()}`}
           role="presentation"
         />
       }
-      title={favor.user.name}
-      subtitle={favor.user.email}
+      title={favor.title}
+      subtitle={favor.user.name}
     />
     <CardText>
-      {favor.text}
+      <p>{favor.text}</p>
     </CardText>
+    <Media>
+      <img
+        src={`https://unsplash.it/350/150/?random&time=${new Date().getTime()}`}
+        role="presentation"
+      />
+    </Media>
     <CardActions>
       <Button flat label="View" />
     </CardActions>
@@ -90,7 +90,8 @@ const favores = [
   )
 ]
 
-const makeList = favors => favors.map(favor => <Favor key={favor.id} favor={favor} />)
+const makeList = favors =>
+  favors.map(favor => <Favor key={favor.id} favor={favor} />)
 
 const FavorList = () => <MainPage><list> {makeList(favores)}</list></MainPage>
 
