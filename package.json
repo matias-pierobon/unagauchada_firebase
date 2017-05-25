@@ -9,7 +9,11 @@
     "react-css-modules": "^4.0.5",
     "react-dom": "^15.5.4",
     "react-md": "^1.0.13",
+    "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
+    "redux": "^3.6.0",
+    "redux-actions": "^2.0.3",
+    "redux-thunk": "^2.2.0",
     "webfontloader": "^1.6.27"
   },
   "devDependencies": {

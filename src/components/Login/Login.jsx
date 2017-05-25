@@ -10,7 +10,7 @@ import "./Login.scss"
 class Login extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { email: "", password: "", first: true }
+    this.state = { email: "", password: "", error: null }
   }
 
   handleChange = property => value => {
@@ -23,7 +23,7 @@ class Login extends React.Component {
     firebase
       .auth(app)
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .catch(error => console.error(error))
+      .catch(error => this.setState({ error }))
   }
 
   render = () => (
@@ -31,6 +31,7 @@ class Login extends React.Component {
       <Paper zDepth={2}>
         <header>Ingresar al sistema</header>
         <section>
+          { this.state.error ? <error>{this.state.error.message}</error> : null}
           <TextField
             id="email"
             label="Email"
